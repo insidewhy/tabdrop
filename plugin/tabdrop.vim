@@ -3,7 +3,13 @@ function s:TabDropHelper(file, here)
   for t in range(1, tabpagenr('$'))
     for b in tabpagebuflist(t)
       if bufname(b) == a:file
-        exec "tabnext " . t
+        if a:here
+          let current = tabpagenr()
+          exec "tabnext " . t
+          exec "tabmove " . (current - 1)
+        else
+          exec "tabnext " . t
+        endif
         return
       endif
     endfor
