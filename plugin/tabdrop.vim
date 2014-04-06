@@ -1,8 +1,9 @@
 function s:TabDropHelper(file, here)
   let visible = {}
+  let path = fnamemodify(a:file, ':p')
   for t in range(1, tabpagenr('$'))
     for b in tabpagebuflist(t)
-      if bufname(b) == a:file
+      if fnamemodify(bufname(b), ':p') == path
         if a:here
           let current = tabpagenr()
           exec "tabnext " . t
