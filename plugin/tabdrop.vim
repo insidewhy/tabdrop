@@ -15,7 +15,12 @@ function s:TabDropHelper(file, here)
       endif
     endfor
   endfor
-  exec "tabnew " . a:file
+
+  if bufname('') == '' && &modified == 0
+    exec "edit " . a:file
+  else
+    exec "tabnew " . a:file
+  end
 endfunction
 
 function s:TabDrop(file)
