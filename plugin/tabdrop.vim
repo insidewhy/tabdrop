@@ -1,4 +1,4 @@
-function s:TabDropHelper(file, here)
+function! s:TabDropHelper(file, here)
   let visible = {}
   let path = fnamemodify(a:file, ':p')
   for t in range(1, tabpagenr('$'))
@@ -23,7 +23,7 @@ function s:TabDropHelper(file, here)
   end
 endfunction
 
-function s:TabDrop(file)
+function! s:TabDrop(file)
   if exists(":drop")
     exec "tab drop " . a:file
   else
@@ -31,7 +31,7 @@ function s:TabDrop(file)
   end
 endfunction
 
-function s:TabDropHere(file)
+function! s:TabDropHere(file)
   call s:TabDropHelper(a:file, 1)
 endfunction
 
