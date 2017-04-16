@@ -35,5 +35,5 @@ function! s:TabDropHere(file)
   call s:TabDropHelper(a:file, 1)
 endfunction
 
-command -nargs=1 -complete=file TabDrop call s:TabDrop(<q-args>)
-command -nargs=1 -complete=file TabDropHere call s:TabDropHere(<q-args>)
+command! -nargs=1 -complete=file TabDrop call s:TabDrop(<q-args>)
+command! -nargs=1 -complete=file TabDropHere call s:TabDropHere(<q-args>)
